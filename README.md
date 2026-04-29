@@ -28,6 +28,7 @@ Option 1:
 - Extract the files to your prefered folder
 - In your preferred IDE open this folder
 - Run the code as normal
+
 Option 2:
 - On main page click <> Code
 - Click create codespace
