@@ -8,8 +8,8 @@ A simple, free program that tracks your money, habits and history.
 
 # Features
 - Add Transactions
--   Income
--   Expense
+  - Income
+  - Expense
 - View Transaction History
 - View Total Transaction Summary + Remaining Balance
 - View Spending Habits
