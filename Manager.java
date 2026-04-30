@@ -31,7 +31,6 @@ public class Manager {
   public void viewSummary() {
     double totalIncome = 0;
     double totalExpense = 0;
-    Map<String, Double> categoryTotals = new HashMap<>();
     if (transactions.isEmpty()) {
       System.out.println("View Summary ******** No Transaction(s) Found");
       return;
@@ -73,6 +72,7 @@ public class Manager {
     System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
   }
 
+  @SuppressWarnings("null")
   public void editTransactions(Scanner scanner) {
     System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
     System.out.println("Enter ID of the transaction to edit: ");
@@ -107,8 +107,12 @@ public class Manager {
       case 1 -> {
         System.out.println("Enter new type (Income/Expense): ");
         String newType = scanner.nextLine();
+        scanner.nextLine();
         if (newType.equalsIgnoreCase("Income") || newType.equalsIgnoreCase("Expense")) {
           transactionToEdit.setType(newType);
+          System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+          System.out.println("************ Transaction updated successfully");
+          System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         } else {
           System.out.println("Invalid type.");
         }
@@ -116,31 +120,40 @@ public class Manager {
       case 2 -> {
         System.out.println("Enter new payer/payee: ");
         String newPayType = scanner.nextLine();
+        scanner.nextLine();
         if (newPayType.isBlank()) {
           System.out.println("Invalid payer/payee.");
-          return;
         } else {
           transactionToEdit.setPayType(newPayType);
+          System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+          System.out.println("************ Transaction updated successfully");
+          System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         }
       }
       case 3 -> {
         System.out.println("Enter new amount: ");
         double newAmount = scanner.nextDouble();
+        scanner.nextLine();
         if (newAmount < 0) {
           System.out.println("Invalid amount.");
-          return;
         } else {
           transactionToEdit.setAmount(newAmount);
+          System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+          System.out.println("************ Transaction updated successfully");
+          System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         }
       }
       case 4 -> {
         System.out.println("Enter new description: ");
         String newDescription = scanner.nextLine();
+        scanner.nextLine();
         if (newDescription.isBlank()) {
           System.out.println("Invalid description.");
-          return;
         } else {
           transactionToEdit.setDescription(newDescription);
+          System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+          System.out.println("************ Transaction updated successfully");
+          System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         }
       }
       default -> System.out.println("Invalid choice.");
@@ -163,8 +176,5 @@ public class Manager {
      * String newDescription = scanner.nextLine();
      * transactionToEdit.setDescription(newDescription);
      */
-    System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-    System.out.println("************ Transaction updated successfully");
-    System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
   }
 }

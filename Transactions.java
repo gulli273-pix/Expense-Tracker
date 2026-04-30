@@ -67,12 +67,14 @@ public class Transactions {
 
   @java.lang.Override
   public java.lang.String toString() {
-    return "Transaction:\n" +
-        "  ID = " + id + "\n" +
-        "  Type = '" + Type + "'\n" +
-        "  Payer/Payee = '" + payType + "'\n" +
-        "  Amount = " + amount + "\n" +
-        "  Date = " + date + "\n" +
-        "  Description = '" + description + "'";
+    return """
+        Transaction:
+          ID = %d
+          Type = '%s'
+          Payer/Payee = '%s'
+          Amount = %.2f
+          Date = %s
+          Description = '%s'
+        """.formatted(id, Type, payType, amount, date, description);
   }
 }
